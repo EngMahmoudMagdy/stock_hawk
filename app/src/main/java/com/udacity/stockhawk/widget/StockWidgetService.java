@@ -85,8 +85,8 @@ public class StockWidgetService extends RemoteViewsService {
 
             int backgroundDrawable;
 
-            DecimalFormat dollarFormat = (DecimalFormat) NumberFormat.getCurrencyInstance(Locale.US);
-            DecimalFormat dollarFormatWithPlus = (DecimalFormat) NumberFormat.getCurrencyInstance(Locale.US);
+            DecimalFormat dollarFormat = (DecimalFormat) NumberFormat.getCurrencyInstance(Locale.getDefault());
+            DecimalFormat dollarFormatWithPlus = (DecimalFormat) NumberFormat.getCurrencyInstance(Locale.getDefault());
             dollarFormatWithPlus.setPositivePrefix("+$");
 
             DecimalFormat   percentageFormat = (DecimalFormat) NumberFormat.getPercentInstance(Locale.getDefault());

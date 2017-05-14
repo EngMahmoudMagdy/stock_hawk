@@ -1,5 +1,6 @@
 package com.udacity.stockhawk.sync;
 
+import android.app.Activity;
 import android.app.job.JobInfo;
 import android.app.job.JobScheduler;
 import android.content.ComponentName;
@@ -14,6 +15,7 @@ import android.widget.Toast;
 import com.udacity.stockhawk.R;
 import com.udacity.stockhawk.data.Contract;
 import com.udacity.stockhawk.data.PrefUtils;
+import com.udacity.stockhawk.ui.MainActivity;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -43,7 +45,7 @@ public final class QuoteSyncJob {
     private QuoteSyncJob() {
     }
 
-    static void getQuotes(Context context) {
+    static void getQuotes(final Context context) {
 
         Timber.d("Running sync job");
 
@@ -77,40 +79,45 @@ public final class QuoteSyncJob {
 
                 Stock stock = quotes.get(symbol);
 
-                if (stock == null) {
-                    Toast.makeText(context, R.string.stock_not_available,Toast.LENGTH_SHORT).show();
+                if (stock == null || stock.getName() == null) {
                     PrefUtils.removeStock(context,symbol);
                 } else {
                     StockQuote quote = stock.getQuote();
-                    float price = quote.getPrice().floatValue();
-                    float change = quote.getChange().floatValue();
-                    float percentChange = quote.getChangeInPercent().floatValue();
-
-                    // WARNING! Don't request historical data for a stock that doesn't exist!
-                    // The request will hang forever X_x
-                    List<HistoricalQuote> history = stock.getHistory(from, to, Interval.WEEKLY);
-
-                    StringBuilder historyBuilder = new StringBuilder();
-
-                    for (HistoricalQuote it : history) {
-                        historyBuilder.append(it.getDate().getTimeInMillis());
-                        historyBuilder.append(", ");
-                        historyBuilder.append(it.getClose());
-                        historyBuilder.append("\n");
-                        Log.e("data",it.getSymbol());
-                        Log.e("data h",String.valueOf(it.getDate().get(Calendar.MONTH)));
-                        Log.e("data s",String.valueOf(it.getClose()));
+                    if (quote == null || quote.getPrice()==null)
+                    {
+                        PrefUtils.removeStock(context,symbol);
                     }
+                    else{
+                        float price = quote.getPrice().floatValue();
+                        float change = quote.getChange().floatValue();
+                        float percentChange = quote.getChangeInPercent().floatValue();
 
-                    ContentValues quoteCV = new ContentValues();
-                    quoteCV.put(Contract.Quote.COLUMN_SYMBOL, symbol);
-                    quoteCV.put(Contract.Quote.COLUMN_PRICE, price);
-                    quoteCV.put(Contract.Quote.COLUMN_NAME,stock.getName());
-                    quoteCV.put(Contract.Quote.COLUMN_ABSOLUTE_CHANGE, change);
-                    quoteCV.put(Contract.Quote.COLUMN_PERCENTAGE_CHANGE, percentChange);
-                    quoteCV.put(Contract.Quote.COLUMN_HISTORY, historyBuilder.toString());
-                    quoteCVs.add(quoteCV);
+                        // WARNING! Don't request historical data for a stock that doesn't exist!
+                        // The request will hang forever X_x
+                        List<HistoricalQuote> history = stock.getHistory(from, to, Interval.WEEKLY);
 
+                        StringBuilder historyBuilder = new StringBuilder();
+
+                        for (HistoricalQuote it : history) {
+                            historyBuilder.append(it.getDate().getTimeInMillis());
+                            historyBuilder.append(", ");
+                            historyBuilder.append(it.getClose());
+                            historyBuilder.append("\n");
+                            Log.e("data", it.getSymbol());
+                            Log.e("data h", String.valueOf(it.getDate().get(Calendar.MONTH)));
+                            Log.e("data s", String.valueOf(it.getClose()));
+                        }
+
+                        ContentValues quoteCV = new ContentValues();
+                        quoteCV.put(Contract.Quote.COLUMN_SYMBOL, symbol);
+                        quoteCV.put(Contract.Quote.COLUMN_PRICE, price);
+                        quoteCV.put(Contract.Quote.COLUMN_NAME, stock.getName());
+                        quoteCV.put(Contract.Quote.COLUMN_ABSOLUTE_CHANGE, change);
+                        quoteCV.put(Contract.Quote.COLUMN_PERCENTAGE_CHANGE, percentChange);
+                        quoteCV.put(Contract.Quote.COLUMN_HISTORY, historyBuilder.toString());
+                        quoteCVs.add(quoteCV);
+
+                    }
                 }
 
 

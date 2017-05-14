@@ -18,9 +18,9 @@
             android:orientation="vertical"
             android:gravity="center_vertical"
             android:background="@color/colorPrimaryDark"
-            android:paddingLeft="16dp"
+            android:paddingStart="16dp"
             android:paddingTop="16dp"
-            android:paddingRight="16dp"
+            android:paddingEnd="16dp"
             android:paddingBottom="16dp"
             >
 
@@ -30,7 +30,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-                android:text="hello here"
                 />
 
             <TextView
@@ -40,7 +39,6 @@
                 android:paddingTop="10dp"
                 android:textAllCaps="true"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                android:text="hello"
              />
 
             <LinearLayout
@@ -56,7 +54,6 @@
                     android:layout_height="wrap_content"
                     android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
                     android:textStyle="bold"
-                    android:text="hello"
                     android:textSize="30sp"
                     tools:ignore="RelativeOverlap" />
 
@@ -67,7 +64,6 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center_horizontal"
-                    android:text="wel"
                     android:textAppearance="@style/TextAppearance.AppCompat.Headline"
                     android:textSize="20sp" />
 

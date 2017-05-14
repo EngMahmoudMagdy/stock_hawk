@@ -10,13 +10,15 @@
         android:layout_width="match_parent"
         android:layout_height="?android:attr/listPreferredItemHeight"
         android:orientation="horizontal"
-        android:paddingLeft="@dimen/abc_list_item_padding_horizontal_material"
-        android:paddingRight="@dimen/abc_list_item_padding_horizontal_material"
+        android:paddingStart="@dimen/abc_list_item_padding_horizontal_material"
+        android:paddingEnd="@dimen/abc_list_item_padding_horizontal_material"
         android:gravity="center_vertical">
         <TextView
             android:id="@+id/stock_symbol"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            style="@style/WidgetStockSymbolTextStyle"
+            android:textColor="@color/white"
             android:gravity="start|center_vertical" />
 
         <LinearLayout
@@ -27,20 +29,21 @@
 
             <TextView
                 android:id="@+id/bid_price"
+                style="@style/WidgetBidPriceTextStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingEnd="@dimen/list_item_stock_price_horizontal_padding"
-                android:paddingLeft="@dimen/list_item_stock_price_horizontal_padding"
-                android:paddingRight="@dimen/list_item_stock_price_horizontal_padding"
                 android:paddingStart="@dimen/list_item_stock_price_horizontal_padding" />
 
             <TextView
                 android:id="@+id/stock_change"
+                style="@style/WidgetPercentChangeTextStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/white"
                 android:paddingBottom="@dimen/list_item_stock_change_horizontal_padding"
-                android:paddingLeft="@dimen/list_item_stock_change_horizontal_padding"
-                android:paddingRight="@dimen/list_item_stock_change_horizontal_padding"
+                android:paddingStart="@dimen/list_item_stock_change_horizontal_padding"
+                android:paddingEnd="@dimen/list_item_stock_change_horizontal_padding"
                 android:paddingTop="@dimen/list_item_stock_change_horizontal_padding" />
         </LinearLayout>
     </LinearLayout>
