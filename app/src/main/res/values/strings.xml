@@ -1,0 +1,46 @@
+<resources>
+    <string name="app_name">Stock Hawk</string>
+    <string name="add_stock">Add a new stock quote</string>
+
+    <string name="pref_stocks_initialized_key" translatable="false">initialized</string>
+
+    <string name="pref_stocks_key" translatable="false">stocks</string>
+    <string name="no_network_connection">No Network Connection available</string>
+
+
+    <string name="pref_display_mode_key" translatable="false">Change units</string>
+    <string name="pref_display_mode_default" translatable="false">@string/pref_display_mode_percentage_key</string>
+
+    <string name="pref_display_mode_absolute_key" translatable="false">absolute</string>
+    <string name="pref_display_mode_percentage_key" translatable="false">percentage</string>
+
+    <string name="default_stocks_yahoo" translatable="false">YHOO</string>
+    <string name="default_stocks_apple" translatable="false">AAPL</string>
+    <string name="default_stocks_microsoft" translatable="false">MSFT</string>
+    <string name="default_stocks_facebook" translatable="false">FB</string>
+
+
+    <string name="action_change_units" translatable="false">@string/pref_display_mode_key</string>
+
+
+    <string name="dialog_title">Add Stock</string>
+    <string name="dialog_hint">Symbol (e.g. GOOG)</string>
+    <string name="dialog_cancel">Cancel</string>
+    <string name="dialog_add">Add</string>
+
+    <string name="error_no_network">No network connectivity! Will load stock cursor when the network is available.</string>
+    <string name="error_no_stocks">No stocks added! Hit the floating action button to add one.</string>
+
+    <string name="toast_stock_added_no_connectivity">added and Will refresh when network available</string>
+    <string name="toast_no_connectivity">Will refresh when network available</string>
+    <string name="stock_not_available">Stock is not available</string>
+    <string name="symbol">Symbol</string>
+    <string name="no_stock">Write a Stock</string>
+    <string name="title_activity_details">DetailsActivity</string>
+    <string name="week">Week</string>
+    <string name="stock_value_time">Weekly</string>
+    <string name="widget_cd" translatable="false">Stock hawk widget</string>
+    <string name="widget_label" translatable="false">Stock hawk</string>
+
+
+</resources>

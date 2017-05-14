@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Stock Hawk</string>
+    <string name="add_stock">أضف عرض أسعار أسهم جديد</string>
+    <string name="dialog_hint">(GOOG)اختصار مثال</string>
+    <string name="dialog_cancel">إلغاء</string>
+    <string name="dialog_add">إضافة</string>
+    <string name="dialog_title">إضافة سهم</string>
+    <string name="error_no_network">لا يوجد اتصال بالشبكة! سيتم تحميل مؤشر الأسهم عندما تكون الشبكة متاحة.</string>
+    <string name="error_no_stocks">لم يتم إضافة أي أسهم! إضرب زر العمل العائم لإضافة سهم.</string>
+    <string name="no_network_connection">لا تتوفر شبكة اتصال</string>
+    <string name="toast_no_connectivity">سيتم تحديث عندما تكون الشبكة المتاحة</string>
+    <string name="toast_stock_added_no_connectivity">سيتم إضافته و سيتم تحديث عندما الشبكة المتاحة</string>
+    <string name="stock_not_available">"هذا السهم غير متاح "</string>
+    <string name="symbol">الرمز</string>
+    <string name="no_stock">اكتب اسم سهم</string>
+    <string name="week">أسبوع</string>
+    <string name="title_activity_details">التفاصيل</string>
+    <string name="stock_value_time">أسبوعيا</string>
+</resources>
